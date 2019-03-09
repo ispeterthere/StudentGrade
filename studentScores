@@ -1,0 +1,91 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package StudentGrade;
+
+/**
+ *
+ * @author plsan
+ */
+public class studentScores {
+    private double midTermScore, finalProjectScore, finalExamScore;
+    private double attendanceScore, programsScore, QuizzesScore;
+    private double programsQuizzesScore;
+
+    //Set the qeight for each assignment
+    private double program_Quizzes_Weight = 0.30;
+    private double final_Project_Weight = 0.15;
+    private double exams_Weight = 0.50;
+    private double attendance_Weight = 0.05;
+
+    //Initialize class variables
+    public studentScores()
+    {
+        midTermScore = 0;
+        finalProjectScore = 0;
+        finalExamScore = 0;
+        attendanceScore = 0;
+        programsQuizzesScore = 0;
+
+    }
+    //Setting midterm score
+    public void setMidTermScore(double midTerm)
+    {
+        midTermScore = midTerm;
+    }
+    //setting final exam Score
+    public void setFinalProjectScores(double projectScore)
+    {
+        finalProjectScore = projectScore;
+    }
+    //setting final exam score
+    public void setFinalExamScore(double finalExam)
+    {
+        finalExamScore = finalExam;
+    }
+    //setting Quizzes Score
+    public void setQuizzesScore(double Quizzes)
+    {
+        QuizzesScore = Quizzes;
+    }
+    //setting Program Score
+    public void setProgramScore(double program)
+    {
+        programsScore = program;
+    }
+    //setting Attendance Score
+    public void setAttendanceScore(double attendance)
+    {
+        attendanceScore = attendance;
+    }
+    //Calculate average grade
+    public double getGradeAverage()
+    {
+        programsQuizzesScore = (programsScore + QuizzesScore) / 2;
+        double gradeAverage = exams_Weight *((midTermScore+finalExamScore)/2) +
+                (program_Quizzes_Weight * programsQuizzesScore) +
+                (attendance_Weight * attendanceScore);
+        return gradeAverage;
+    }
+    //Grading Scale
+    public char stdGrade()
+    {
+        char grade = 'E';
+        double average = getGradeAverage();
+
+        if (average >= 90)
+            grade = 'A';
+        else if (average >= 80)
+            grade = 'B';
+        else if (average >= 70)
+            grade = 'C';
+        else if (average >= 60)
+            grade = 'D';
+        else
+            grade = 'F';
+
+        return grade;
+    }
+}
