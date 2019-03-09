@@ -1,0 +1,34 @@
+package StudentGrade;
+
+public class Student {
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    private String surname;
+
+    public String getStudentNr() {
+        return studentNr;
+    }
+
+    public void setStudentNr(String studentNr) {
+        this.studentNr = studentNr;
+    }
+
+    private String studentNr;
+}
